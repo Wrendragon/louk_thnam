@@ -1,0 +1,230 @@
+:root{
+  --paper:#F7F5EE;
+  --paper-alt:#EFEAdc;
+  --card:#FFFFFF;
+  --ink:#232A22;
+  --ink-soft:#5C6459;
+  --pine:#1F3A34;
+  --pine-light:#2E5248;
+  --sage:#7C9885;
+  --sage-pale:#DCE5DC;
+  --amber:#C1793D;
+  --amber-pale:#F1DEC4;
+  --red:#AE423F;
+  --red-pale:#F3DAD8;
+  --line:#DAD3C1;
+}
+*{box-sizing:border-box;}
+html,body,#root{height:100%;margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.serif{font-family:'Fraunces',serif;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+input,select,textarea{font-family:inherit;}
+
+/* ---------- Topbar ---------- */
+.topbar{border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:20;}
+.topbar-inner{max-width:1080px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+.wordmark{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--pine);display:flex;align-items:center;gap:8px;}
+.wordmark .cross{color:var(--amber);}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-btn{padding:8px 14px;border-radius:3px;border:none;background:transparent;font-size:13.5px;font-weight:500;color:var(--ink-soft);letter-spacing:.2px;}
+.nav-btn:hover{color:var(--pine);}
+.nav-btn.active{background:var(--pine);color:#fff;}
+.nav-btn.ghost{border:1px solid var(--line);color:var(--pine);}
+.rx-tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.5px;background:var(--pine);color:#fff;padding:3px 7px;border-radius:2px;text-transform:uppercase;}
+.user-badge{display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;border-radius:20px;background:var(--sage-pale);cursor:pointer;transition:background .15s;}
+.user-badge:hover{background:#cfdccf;}
+.user-badge-text{display:flex;flex-direction:column;line-height:1.2;}
+.user-badge-name{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--pine);}
+.user-badge-role{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.5px;color:var(--pine-light);text-transform:uppercase;}
+
+/* ---------- Shell ---------- */
+.shell{max-width:1080px;margin:0 auto;padding:40px 24px 80px;}
+.shell.narrow{max-width:440px;padding-top:64px;}
+
+/* ---------- Auth cards ---------- */
+.ticket{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:36px 32px;position:relative;box-shadow:0 1px 2px rgba(31,58,52,0.04);}
+.auth-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--sage);text-transform:uppercase;margin-bottom:6px;}
+.auth-title{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--pine);margin:0 0 24px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:6px;letter-spacing:.3px;text-transform:uppercase;}
+.field input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:4px;font-size:14.5px;background:var(--paper);color:var(--ink);}
+.field input:focus{outline:2px solid var(--sage);outline-offset:1px;border-color:var(--sage);}
+.btn-primary{width:100%;padding:12px;border:none;border-radius:4px;background:var(--pine);color:#fff;font-weight:600;font-size:14.5px;letter-spacing:.2px;margin-top:8px;}
+.btn-primary:hover{background:var(--pine-light);}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed;}
+.btn-secondary{width:100%;padding:12px;border:1px solid var(--pine);border-radius:4px;background:transparent;color:var(--pine);font-weight:600;font-size:14.5px;margin-top:10px;}
+.auth-foot{margin-top:20px;font-size:13.5px;color:var(--ink-soft);text-align:center;}
+.auth-foot button{background:none;border:none;color:var(--amber);font-weight:600;font-size:13.5px;}
+.alert{padding:10px 12px;border-radius:4px;font-size:13px;margin-bottom:18px;}
+.alert.err{background:var(--red-pale);color:var(--red);}
+.alert.ok{background:var(--sage-pale);color:var(--pine);}
+
+/* ---------- Catalog ---------- */
+.page-head{margin-bottom:28px;}
+.page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--sage);text-transform:uppercase;}
+.page-title{font-family:'Fraunces',serif;font-size:32px;font-weight:600;color:var(--pine);margin:4px 0 0;}
+.page-sub{color:var(--ink-soft);font-size:14.5px;margin-top:8px;max-width:520px;line-height:1.6;}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 28px;}
+.chip{padding:7px 14px;border:1px solid var(--line);border-radius:20px;font-size:13px;background:var(--card);color:var(--ink-soft);font-weight:500;}
+.chip.active{background:var(--pine);border-color:var(--pine);color:#fff;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s, transform .15s;}
+.card:hover{box-shadow:0 6px 18px rgba(31,58,52,0.10);transform:translateY(-2px);}
+.card-top{height:130px;display:flex;align-items:center;justify-content:center;position:relative;background:var(--paper-alt);overflow:hidden;}
+.card-top img{width:100%;height:100%;object-fit:cover;}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1;}
+.card-cat{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.6px;color:var(--sage);text-transform:uppercase;}
+.card-name{font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink);line-height:1.25;}
+.card-brand{font-size:12px;color:var(--ink-soft);margin-top:-4px;}
+.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px;}
+.card-price{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:15px;color:var(--pine);}
+.badge-rx{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.5px;color:var(--red);border:1px solid var(--red);padding:2px 6px;border-radius:2px;text-transform:uppercase;}
+.badge-stock{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-soft);}
+.badge-low{color:var(--red);}
+.view-btn{width:100%;padding:9px;margin-top:10px;border:1px solid var(--pine);border-radius:4px;background:transparent;color:var(--pine);font-weight:600;font-size:12.5px;letter-spacing:.3px;}
+.view-btn:hover{background:var(--pine);color:#fff;}
+
+/* ---------- Detail (label ticket) ---------- */
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-soft);font-weight:500;margin-bottom:20px;border:none;background:none;}
+.back-link:hover{color:var(--pine);}
+.label-ticket{background:var(--card);border:1px solid var(--line);border-radius:8px;display:flex;overflow:hidden;box-shadow:0 1px 3px rgba(31,58,52,0.06);}
+.label-image{width:260px;flex-shrink:0;background:var(--paper-alt);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.label-image img{width:100%;height:100%;object-fit:cover;}
+.label-main{padding:32px 36px;flex:1;}
+.detail-cat{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--sage);text-transform:uppercase;}
+.detail-title{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--pine);margin:2px 0 0;}
+.detail-brand{font-size:13.5px;color:var(--ink-soft);margin-top:4px;}
+.detail-price-row{display:flex;align-items:center;gap:14px;margin:18px 0 24px;}
+.detail-price{font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--ink);font-weight:500;}
+.hr{border:none;border-top:1px solid var(--line);margin:22px 0;}
+.detail-section-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--ink-soft);text-transform:uppercase;margin-bottom:8px;}
+.detail-text{font-size:14.5px;line-height:1.65;color:var(--ink);white-space:pre-line;}
+.dosage-box{background:var(--paper-alt);border:1px solid var(--line);border-radius:6px;padding:16px 18px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;line-height:1.7;color:var(--pine);white-space:pre-line;}
+.stock-line{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-soft);margin-top:22px;}
+
+/* ---------- Admin ---------- */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:36px;}
+.stat-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px 22px;border-top:3px solid var(--pine);}
+.stat-card.amber{border-top-color:var(--amber);}
+.stat-card.red{border-top-color:var(--red);}
+.stat-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.8px;color:var(--ink-soft);text-transform:uppercase;}
+.stat-value{font-family:'Fraunces',serif;font-size:34px;font-weight:600;color:var(--pine);margin-top:6px;}
+.section-title{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--pine);margin:0 0 14px;}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;margin-bottom:24px;}
+table{width:100%;border-collapse:collapse;}
+th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.6px;color:var(--ink-soft);text-transform:uppercase;padding:8px 10px;border-bottom:1px solid var(--line);}
+td{padding:11px 10px;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+.table-name{font-weight:600;color:var(--ink);}
+.table-actions{display:flex;gap:8px;}
+.mini-btn{padding:5px 10px;border-radius:3px;border:1px solid var(--line);background:var(--paper);font-size:12px;color:var(--ink-soft);font-weight:500;}
+.mini-btn:hover{border-color:var(--pine);color:var(--pine);}
+.mini-btn.danger:hover{border-color:var(--red);color:var(--red);}
+.row-actions-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;}
+.form-grid .full{grid-column:1/-1;}
+.checkbox-row{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink);margin-top:4px;}
+.checkbox-row input{width:16px;height:16px;}
+textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:4px;font-size:14px;resize:vertical;min-height:70px;background:var(--paper);}
+select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:4px;font-size:14.5px;background:var(--paper);color:var(--ink);}
+.btn-row{display:flex;gap:10px;margin-top:20px;}
+.btn-row .btn-primary,.btn-row .btn-secondary{width:auto;padding:10px 22px;margin-top:0;}
+.empty-note{color:var(--ink-soft);font-size:13.5px;padding:20px 0;text-align:center;}
+.loading-note{color:var(--sage);font-size:13.5px;padding:40px 0;text-align:center;}
+
+/* ---------- Home / hero ---------- */
+.hero{background:var(--paper-alt);border-bottom:1px solid var(--line);}
+.hero-inner{max-width:1080px;margin:0 auto;padding:72px 24px 60px;}
+.hero-title{font-family:'Fraunces',serif;font-size:44px;font-weight:600;color:var(--pine);line-height:1.15;margin:8px 0 18px;}
+.hero-sub{font-size:15.5px;color:var(--ink-soft);max-width:560px;line-height:1.7;margin-bottom:28px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.trust-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:40px 0 44px;}
+.trust-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px 20px;border-top:3px solid var(--sage);}
+.trust-title{font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--pine);}
+.trust-sub{font-size:12.5px;color:var(--ink-soft);margin-top:4px;}
+
+/* ---------- Product card add-to-cart ---------- */
+.card-btn-row{display:flex;gap:8px;margin-top:10px;}
+.card-btn-row .view-btn{margin-top:0;width:auto;flex:1;}
+.add-cart-btn{flex:1;padding:9px;border:1px solid var(--amber);border-radius:4px;background:var(--amber);color:#fff;font-weight:600;font-size:12.5px;letter-spacing:.2px;}
+.add-cart-btn:hover{background:#a8672f;border-color:#a8672f;}
+.add-cart-btn:disabled{background:var(--line);border-color:var(--line);color:var(--ink-soft);cursor:not-allowed;}
+
+/* ---------- Product detail add-to-cart ---------- */
+.cart-add-row{display:flex;align-items:center;gap:14px;margin-top:22px;}
+.qty-stepper{display:flex;align-items:center;border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+.qty-stepper button{width:34px;height:36px;border:none;background:var(--paper-alt);color:var(--pine);font-size:16px;font-weight:600;}
+.qty-stepper button:hover{background:var(--sage-pale);}
+.qty-stepper button:disabled{opacity:.4;cursor:not-allowed;}
+.qty-stepper span{width:36px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:14px;}
+
+/* ---------- Cart / Checkout ---------- */
+.cart-layout{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;}
+.cart-items{display:flex;flex-direction:column;gap:16px;}
+.cart-row{display:grid;grid-template-columns:56px 1fr auto auto auto;align-items:center;gap:14px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+.cart-row:last-child{border-bottom:none;padding-bottom:0;}
+.cart-row img{width:56px;height:56px;object-fit:cover;border-radius:6px;background:var(--paper-alt);}
+.cart-row-info{min-width:0;}
+.cart-row-total{font-size:14px;font-weight:500;color:var(--pine);white-space:nowrap;}
+.cart-summary{position:sticky;top:88px;}
+.cart-summary-row{display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink-soft);padding:6px 0;}
+.cart-summary-row.total{border-top:1px solid var(--line);margin-top:8px;padding-top:14px;font-size:16px;font-weight:600;color:var(--pine);}
+.cart-summary .btn-primary{margin-top:18px;}
+
+/* ---------- Nav cart icon ---------- */
+.nav-cart{position:relative;display:flex;align-items:center;padding:8px 10px;border-radius:3px;color:var(--ink-soft);}
+.nav-cart:hover{color:var(--pine);background:var(--paper-alt);}
+.nav-cart.active{color:var(--pine);}
+.nav-cart-badge{position:absolute;top:2px;right:2px;background:var(--amber);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;min-width:15px;height:15px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 3px;}
+
+/* ---------- About / Contact ---------- */
+.static-page-lead{font-size:15.5px;color:var(--ink-soft);line-height:1.75;max-width:620px;margin-bottom:8px;}
+.value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:28px 0 8px;}
+.value-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px 22px;border-top:3px solid var(--pine);}
+.value-card h3{font-family:'Fraunces',serif;font-size:16px;color:var(--pine);margin:0 0 6px;}
+.value-card p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+.contact-info-item{margin-bottom:18px;}
+.contact-info-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.8px;color:var(--sage);text-transform:uppercase;margin-bottom:4px;}
+.contact-info-value{font-size:14.5px;color:var(--ink);}
+
+/* ---------- Order history ---------- */
+.order-list{display:flex;flex-direction:column;gap:14px;}
+.order-card{padding:0;overflow:hidden;}
+.order-card-head{
+  width:100%;display:grid;grid-template-columns:1fr auto auto auto auto;align-items:center;gap:16px;
+  padding:18px 24px;border:none;background:transparent;text-align:left;cursor:pointer;
+}
+.order-card-head:hover{background:var(--paper-alt);}
+.order-card-chevron{color:var(--ink-soft);font-size:11px;}
+.order-card-body{padding:0 24px 22px;border-top:1px solid var(--line);margin-top:2px;padding-top:18px;}
+.order-status{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.5px;text-transform:uppercase;
+  padding:4px 10px;border-radius:12px;white-space:nowrap;
+}
+.status-pending{background:var(--amber-pale);color:var(--amber);}
+.status-paid{background:var(--sage-pale);color:var(--pine);}
+.status-shipped{background:var(--sage-pale);color:var(--pine-light);}
+.status-cancelled{background:var(--red-pale);color:var(--red);}
+
+@media(max-width:768px){
+  .cart-layout,.contact-grid{grid-template-columns:1fr;}
+  .cart-row{grid-template-columns:44px 1fr;grid-template-areas:"img info" "steppers steppers" "total total" "cancel cancel";row-gap:8px;}
+  .hero-title{font-size:32px;}
+  .order-card-head{grid-template-columns:1fr auto auto;row-gap:8px;}
+}
+
+@media(max-width:640px){
+  .form-grid{grid-template-columns:1fr;}
+  .label-ticket{flex-direction:column;}
+  .label-image{width:100%;height:220px;}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+}
